@@ -1,0 +1,163 @@
+UNIX Helpful reminders:
+
+    q : quit/escape 
+
+    man: access manual page
+
+    e.g. man cd
+
+    e.g. man date
+
+    --help: see quick help (list of arguments for command) 
+
+    e.g. cd --help
+
+    e.g. date --help
+
+    pwd: print working directory
+
+    This will show you your current location
+
+    e.g. pwd
+
+    /c/Users/[Username]
+
+    ls: list 
+
+    what files do I have in this folder?
+
+    Tab complete: start typing the name of the file or folder, then hit tab to automatically complete the rest of the name
+
+    This will help you avoid typos and save you time 
+
+    cd: change directory
+
+    cd ../ moves up one folder
+
+    don't have to use absolute path in cd, relative path is okay
+
+    less: allows you quickly scroll through and view contents of file
+
+    e.g. less example.txt
+
+    If a Command hangs, you can type "Ctrl + C" to cancel the command 
+
+    wc: word count
+
+    wc -l  : line counts
+
+    e.g. wc -l example.txt 
+
+    cp: copies files usage: cp [file] [copy of file]
+
+    cp -i [file] [copy of file] will ask permission before overwriting files
+
+    mv: moves file. mv [file] [new path]
+
+    e.g. mv example_copy.txt experiment/
+
+    rm: delete 
+
+    e.g. rm example_copy.txt
+
+    there's not trash bin! Be careful
+
+    nano: create or edit a plain text document
+
+    to save, ctrl + O
+
+    to exit, ctrl + X
+
+    mkdir: make directory : makes a new folder 
+
+    e.g. mkdir subset 
+
+    rmdir: removedirectory : removes a folder 
+
+    e.g. rmdir subset 
+
+    will not remove a non-empty directory unless using rm -r which recursively goes in and delete files and folder
+
+    | : Pipe : moves output of one command into the next command
+
+    e.g.  ls | wc -l
+
+    e.g. ls data/all_samples/ | wc -l
+
+    > : "send to file" , overides target file
+
+    represents send the output of one command to this file/folder location
+
+    overwrites previous output
+
+    >> append instead of overwrites
+
+    wildcards
+
+    * :  list out any file name that appears at least 0 times
+
+    e.g. ls *.fq | wc -l
+
+    e.g. mv *.fq fastq_files/
+
+    ? : list out any file name that appears at least 1 time
+
+    e.g. ls fastq_files/sample_1?.fq 
+
+    history : lists log of all commands in this session
+
+    e.g.  history >> command -log.txt 
+
+    cut: cuts columns from tables (cut [option] [column number] [file])
+
+    e.g. cut -f 1,3  gene_annotations.tsv | head
+
+    1,3 : colums 1 & 3
+
+    1-3 : columns 1 through 3
+
+    grep: finds matching text pattern and returns lines
+
+    e.g. grep blue colors.txt    
+
+    e.g. grep re colors.txt    
+
+    -c : counts how many times pattern matched 
+
+    grep -c K18979 gene_annotations.tsv
+
+    paste: sticks columns or files together horizontally
+
+    e.g. paste colors.txt colores.txt
+
+    caution number of rows may not match so it may not make sense
+
+    variables
+
+    name=value e.g. my_var=TUCSON
+
+    $ call value / evaluates e.g. $my_var
+
+    echo repeats what you type
+
+    echo $my_var
+
+    loops 
+
+    for: set the loop variable
+
+    in: specifgy whatever it is we are looping over
+
+    do: specify what we want to do with each item
+
+    done: tell the computer we are done telling it what to do with each item
+
+    e.g.  for item in earth mars venus; do echo $item; echo $item >> planets.txt; done
+
+    cat : concatenate
+
+    prints out all the contents of the file 
+
+    e.g. for item in $(cat planets.txt); do echo $item; done
+
+    bash : run bash .sh script

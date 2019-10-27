@@ -1,0 +1,55 @@
+Git Helpful reminders:
+
+    git config --global user.name "YOUR NAME HERE" 
+
+    git config --global user.email "YOUR GITHUB EMAIL HERE"
+
+    git init : initialize git repository
+
+    git add: add files to staging area for committing
+
+    git commit: creates a checkpoint in time which can be reverted to later
+
+    git add practice.txt
+
+    git commit --message "practice git commits"
+
+    rm -r remove git repository
+
+    touch : create a file without going into nano
+
+    git status: use this to see the changes that have been made to your git repository
+
+    git diff : see differences
+
+    git log: see the last 10 commits and their associated messages, who changed, etc.
+
+    git push: send to github
+
+    git pull : "download" from github.. kind of "sync"
+
+
+Git-based Work Cycle
+Now that we have set up a remote repository, let's revisit our Git-based work cycle.
+Here's what I do every time I sit down to work on a project that I'm tracking with Git:
+
+    git pull -- Pull changes from the remote repository. I do this even if I haven't changed anything just to be safe and make it a habit.
+
+    git log -- Remind myself of my recent activity in the repository. What are my recent commits?
+
+    Do some work.
+
+    git status -- Remind myself of the work I just did, in broad strokes (files added, deleted, or modified).
+
+    git diff -- Remind myself of the work I just did, in terms of the specific changes made.
+
+    git add <file> -- Once I'm sure I want to commit changes to a given file, I add the file to the staging area.
+
+    git commit --message "..." -- Commit all the changes that I have added to the staging area with a clear message.
+
+    Repeat steps 3-8 as necessary
+
+    git push -- When I'm done, I push the changes to my remote repository.
+
+
+
