@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1572193182980.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "144461819",
+    "id" : "6AB37479",
+    "lastKnownWriteTime" : 1572200052,
+    "last_content_update" : 1572200052466,
+    "path" : "~/Desktop/workshop/r_lesson/01_intro.R",
+    "project_path" : "01_intro.R",
+    "properties" : {
+        "cursorPosition" : "49,8",
+        "scrollLine" : "40",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

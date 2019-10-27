@@ -1,0 +1,197 @@
+# <- Adds comments
+
+Data Types
+
+class() function to determine the data type
+	ex class(3L) gives integer
+
+Numeric Data Types
+	Number as many decimals as you want 
+	Integer no decimals
+		as.integer() <- returns the value as an integer
+		numberL ex 3L = integer
+	Complex (3+li)
+
+Word Data types
+	Strings aka words they sit between ''
+	Characters individual letters
+
+Logical types
+	TRUE in caps
+	FALSE in caps 
+	Ex put in 300>200 returns TRUE
+
+Comparing logic
+	use == to check equivalence of two values 
+	Ex 10 == 5 returns FALSE
+
+Variables
+	variable_name = "string" or number
+	variable names must start with a character or a .
+	To hide a variable from the environment you can start with a . in front of the name 
+		ex .my_var = 10 
+	Complex variable name suggestions
+	Use _ or . or use caps to indicate new words
+	group_mean, group.mean, groupMean
+
+Defining multiple variables at the same time
+use a ; to add multiple variables on the same line
+ex
+x = 3 ; y = 15; z = 18 
+
+Data structures
+	Vectors
+		A sequence of values just a group of values. However it can only hold one type of data type. Only number only logical only number
+		Ex
+		num_vector = 1:10
+		logical_vector = c(TRUE,FALSE,TRUE)
+		char_vector = c('Matt','Asher','Sarah')
+	Lists
+		Like a vecotr but can hold more than one type of data.
+		Ex
+		my_list = list (1,"a",TRUE)
+
+	Matrix
+		A vector with many rows and columns but it can only hold one type of data. 
+		m <- matrix (nrow=2, ncol=3)
+		To fill the matrix with values
+		m <- matrix (data to fill, nrow=2, ncol=3)
+		m <- matrix (1:6, nrow=2, col=3)
+		To change the fill to by row
+		m <- matrix (1:6, nrow=2, col=3, byrow = TRUE)
+
+	Dataframe
+	Allows for multiple rows and columns with different types of data. 
+	To make a dataframe
+	Ex df = data.frame(id = letters[1:10], x= 1:10, y = 11:20)
+		id produces a column with the name id and letters a to j
+		x produces a column with the name x and numbers 1:10
+		y produces a column with the name y and numbers 11:20
+	ncol gives number of columns
+	nrow() gives number of rows in the data frame
+	dim() gives number of rows and then number of columns
+	ex  
+	dim(df)
+		[1] 10  3
+	str() gives a summary of the full list of parameters in a data frame. Ex there are these many factors with these many observations. Each factor has this range of values and is of this type of data.  
+	> str(df)
+'data.frame':	10 obs. of  3 variables:
+ $ id: Factor w/ 10 levels "a","b","c","d",..: 1 2 3 4 5 6 7 8 9 10
+ $ x : int  1 2 3 4 5 6 7 8 9 10
+ $ y : int  11 12 13 14 15 16 17 18 19 20
+	factor() tells you how many different categories there are 
+
+> summary(df)
+Gives summary statistics
+       id          x               y        
+ a      :1   Min.   : 1.00   Min.   :11.00  
+ b      :1   1st Qu.: 3.25   1st Qu.:13.25  
+ c      :1   Median : 5.50   Median :15.50  
+ d      :1   Mean   : 5.50   Mean   :15.50  
+ e      :1   3rd Qu.: 7.75   3rd Qu.:17.75  
+ f      :1   Max.   :10.00   Max.   :20.00  
+ (Other):4  
+
+Exporting a data frame 
+	write.csv() exports a data frame from R
+	Structure
+	write.csv(x=dataframe name, file = "name of output file", row.names=FALSE this allows you to remove the automatic 1,2,3 added to each row in an R generated data frame 
+	Ex 
+	write.csv(x=cats, file="cats_data.csv", row.names=FALSE)
+
+Importing a data frame
+	read.csv(file="filename")
+	Ex
+	cats2 = read.csv("cats_data.csv")
+
+To extract a column from a dataframe 
+	Dataframe$column name
+	Ex
+	Cats$weight
+	You can do math with it
+	Cats$weight + 2
+
+Add a new column to a data frame
+	cbind() adds a new column 
+	first make a column using variable = c(enter values here)
+	syntax cbind(dataframe name, column to add)
+	ex 
+	 age = c(3,4,5)
+> cbind(cats, age)
+    coat weight like_string age
+1 calico    2.1           1   3
+2  black    5.0           0   4
+3  tabby    3.2           1   5
+	
+Add a new row to a data frame
+	rbind() 
+
+See the top or bottom of a dataframe
+tail(dataframe name)
+head(dataframe name)
+
+How to subset data from dataframes
+This allows you to extract specific values
+the square brackets [] let you remove data
+	Ex
+	> gapminder[1,1]
+[1] Afghanistan
+142 Levels: Afghanistan Albania Algeria Angola ... Zimbabwe
+This gives you the first row and first column 
+dataframe name [cols wanted, rows wanted]
+Ex THis will let you take the first row and only first 5 olumns 
+> gapminder[1, 1:5]
+      country year     pop continent lifeExp
+1 Afghanistan 1952 8425333      Asia  28.801
+
+Dropping columns
+Use a = sign to reove a row or column 
+dataframename[-col name, -row name) 
+This does not change the original file just the loaded data frame 
+
+You can also select columns using thier names "column name"
+Ex
+head(gapminder[, 'lifeExp'])
+gives all rows and just the life expectancy cloumns
+
+To take multiple columns use c('col name 1, col anme2')
+> head(gapminder[, 'lifeExp'])
+[1] 28.801 30.332 31.997 34.020 36.088 38.438
+> head(gapminder[, c('lifeExp', 'pop'])
+Error: unexpected ']' in "head(gapminder[, c('lifeExp', 'pop']"
+
+> head(gapminder[, c('lifeExp', 'pop')])
+  lifeExp      pop
+1  28.801  8425333
+2  30.332  9240934
+3  31.997 10267083
+4  34.020 11537966
+5  36.088 13079460
+6  38.438 14880372
+
+To select only entries with a specific value from a column use ==
+
+head(gapminder[gapminder$year == 1997, ])
+Note you need to keep the , before the ] to indicate you want all the rows
+
+     country year      pop continent lifeExp  gdpPercap
+10 Afghanistan 1997 22227415      Asia  41.763   635.3414
+22     Albania 1997  3428038    Europe  72.950  3193.0546
+34     Algeria 1997 29072015    Africa  69.152  4797.2951
+46      Angola 1997  9875024    Africa  40.963  2277.1409
+58   Argentina 1997 36203463  Americas  73.275 10967.2820
+70   Australia 1997 18565243   Oceania  78.830 26997.9366
+
+To select only a few rows with a given value 
+head(gapminder[gapminder$country == 'Gabon' , c(4,6)])
+
+> head(gapminder[gapminder$country == 'Gabon' , c(4,6)])
+    continent gdpPercap
+541    Africa  4293.476
+542    Africa  4976.198
+543    Africa  6631.459
+544    Africa  8358.762
+545    Africa 11401.948
+546    Africa 21745.573
+
+

@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1572207577767.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "612315883",
+    "id" : "2E0B58BD",
+    "lastKnownWriteTime" : 1572213499,
+    "last_content_update" : 1572213499886,
+    "path" : "~/Desktop/workshop/r_lesson/03_control_flow.R",
+    "project_path" : "03_control_flow.R",
+    "properties" : {
+        "cursorPosition" : "73,2",
+        "scrollLine" : "72",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
